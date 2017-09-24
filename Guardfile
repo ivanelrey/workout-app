@@ -65,6 +65,7 @@ guard :rspec, cmd: "bin/rspec" do
   # Capybara features specs
   watch(rails.view_dirs)     { |m| rspec.spec.call("features/#{m[1]}") }
   watch(rails.layouts)       { |m| rspec.spec.call("features/#{m[1]}") }
+  watch(rails.view_dirs)     { |m| "spec/features/#{m[1]}" }
 
   # Turnip features and steps
   watch(%r{^spec/acceptance/(.+)\.feature$})
