@@ -8,4 +8,7 @@ class ExercisesController < ApplicationController
 		@exercise = current_user.exercises.new
 	end
 
+	def create
+	end
+
 end
