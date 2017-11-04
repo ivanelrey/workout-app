@@ -2,6 +2,7 @@ class ExercisesController < ApplicationController
 	before_action :set_exercise, only: [:show, :edit, :update, :destroy]
 	def index
 		@exercises = current_user.exercises
+		@friends = current_user.friends
 	end
 
 	def show
