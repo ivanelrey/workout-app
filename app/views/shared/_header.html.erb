@@ -15,8 +15,18 @@
 					<li class="active"><%= link_to "Home", root_path %></li>
 				</ul>
 
+				<%= form_tag(search_dashboards_path, class: "navbar-form navbar-left", role: "search") do %>
+					<div class="form-group">
+						<%= text_field_tag :search_name, nil, placeholder: "Search for friends", class: "form-control" %>
+					</div>
+					<%= submit_tag "Search", class: "btn btn-default" %>
+				<% end %>
+
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
+          <p class="signed-in-user navbar-text" style="color: #fff">
+              Signed in as <%= "#{current_user.email}" %>
+            </p>
           	<li><%= link_to "My Lounge", user_exercises_path(current_user) %></li>
             <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
           <% else %>
@@ -25,11 +35,7 @@
           <% end %>
 
           <% if user_signed_in? %>
-          <div class="navbr-right signed-in-user">
-            <p class="navbar-text">
-              Signed in as <%= "#{current_user.email}" %>
-            </p>
-          </div>
+          
         <% end %>
 
         </ul>
